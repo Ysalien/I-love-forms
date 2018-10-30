@@ -1,24 +1,15 @@
-# README
+## I love forms
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Cet app permet de déployer trois types de formulaires : le form html, le form_tag et le form_for. On peut les retrouver sur : https://all-kind-of-forms.herokuapp.com/
 
-Things you may want to cover:
+Un fin design réalisé en bootstrap et css. BDD en PostgreSQL.
 
-* Ruby version
+##### NB
+- Pour checker les routes : config > routes.rb
+- Pour checker le model : app > models > user.rb
+- Pour checker le controller : app > controllers > users_controller.rb
+- Pour checker les views : app > views > users
+- Pour checker le css : app > assets > stylesheets > application.css
+- Pour checker le bootstrap : app > views > users > new.html.erb (le code)
+                              app > views > layouts > application.html.erb (le lien à mettre dans le header) 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
