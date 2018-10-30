@@ -1,0 +1,54 @@
+<h1>Enregistre toi dans ma DB</h1>
+
+<h7> 1- En mode Html </h7>
+<!-- J'aime pas bootstrap, j'en ai fait un que pour le html. Du coup, j'ai recopié le lien
+et ma seule modif est d'ajouter un name afin de reprendre les params de mon formulaire -->
+
+<form action="/users" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <label for="inputName">Ton petit nom</label>
+      <input type="text" name="username" class="form-control" placeholder="Ton petit nom">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputMail">Ton email</label>
+      <input type="email" name="email" class="form-control" placeholder="Ton email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputBio">Ecris un peu ta vie</label>
+    <input type="text" name="bio" class="form-control" placeholder="Ta vie">
+  </div>
+  <button type="submit" class="btn btn-primary">Create user</button>
+</form>
+
+<h7> 2- En mode form_tag </h7>
+<!-- Le form tag renvoie directement à la création d'un nouveau user, les params sont les field-tag-->
+
+<div class="formulaire">
+<%= form_tag url_for(action: 'create'), method: "POST" do %>
+<p>  <%= label_tag 'Ton petit nom' %> <br>
+     <%= text_field_tag 'username' %>
+     <br> <br>
+     <%= label_tag 'Ton email' %> <br>
+     <%= text_field_tag 'email' %>
+     <br> <br>
+     <%= label_tag 'Ecris un peu ta vie' %> <br>
+     <%= text_field_tag 'bio' %>
+     <br> <br>
+     <%= submit_tag "Create user" %>
+<% end %></p>
+</div>
+
+<h7> 3- En mode form_for </h7>
+<!-- mon @user est ma variable, mes :username, :email, :bio vont être retourné en hash via ma variable en params -->
+
+<div class="formulaire">
+<%= form_for @user do |f| %>
+  <p>Ton petit nom : <br> <%= f.text_field :username%></p>
+  <p>Ton email : <br> <%= f.text_field :email %></p>
+  <p>Ecris un peu ta vie : <br> <%= f.text_area :bio %></p>
+  <%= f.submit %>
+<% end %>
+</div>
